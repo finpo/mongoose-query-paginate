@@ -9,7 +9,7 @@ const { to } = require('await-to-js');
  *
  * @param {Object} options
  */
-Query.prototype.paginate = async function (options) {
+Query.prototype.paginate = async function (options, callback) {
   const defaults = {
     perPage: 10, // Number of items to display on each page.
     delta: 5, // Number of page numbers to display before and after the current one.
@@ -60,7 +60,7 @@ Query.prototype.paginate = async function (options) {
     prev = next = last = null;
   }
 
-  return {
+  const returnObj = {
     results,
     options,
     current,
@@ -70,4 +70,10 @@ Query.prototype.paginate = async function (options) {
     pages,
     count,
   };
+
+  if (callback) {
+    callback(errResults, returnObj);
+  }
+
+  return returnObj;
 };
