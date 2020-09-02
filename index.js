@@ -9,7 +9,7 @@ const { to } = require('await-to-js');
  *
  * @param {Object} options
  */
-Query.prototype.paginate = async (options) => {
+Query.prototype.paginate = async function (options) {
   const defaults = {
     perPage: 10, // Number of items to display on each page.
     delta: 5, // Number of page numbers to display before and after the current one.
