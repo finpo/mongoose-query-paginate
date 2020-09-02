@@ -44,7 +44,7 @@ Query.prototype.paginate = async function (options, callback) {
   const delta = options.delta;
   let offset_count = count - options.offset;
   offset_count = offset_count > 0 ? offset_count : 0;
-  const last = Math.ceil(offset_count / options.perPage);
+  let last = Math.ceil(offset_count / options.perPage);
   const current = page;
   const start = page - delta > 1 ? page - delta : 1;
   const end = current + delta + 1 < last ? current + delta : last;
@@ -55,7 +55,7 @@ Query.prototype.paginate = async function (options, callback) {
   }
 
   let prev = !count || current == start ? null : current - 1;
-  const next = !count || current == end ? null : current + 1;
+  let next = !count || current == end ? null : current + 1;
   if (!offset_count) {
     prev = next = last = null;
   }
