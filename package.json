@@ -7,11 +7,18 @@
     "type": "git",
     "url": "git://github.com/lowol/mongoose-query-paginate.git"
   },
-  "keywords": ["mongoose", "paginate", "pager"],
+  "keywords": [
+    "mongoose",
+    "paginate",
+    "pager"
+  ],
   "license": "MIT",
   "description": "Mongoose Query paginate.",
   "devDependencies": {
-    "mongoose": "*",
-    "mocha": "*"
+    "mocha": "*",
+    "mongoose": "*"
+  },
+  "dependencies": {
+    "await-to-js": "^2.1.1"
   }
 }
